@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/bgswan/exchange-rates.git
+  revision: 6f3f7fd6c1a386eb28ceac769460577761c0532f
+  specs:
+    exchange-rates (0.1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -148,6 +154,7 @@ PLATFORMS
 DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
+  exchange-rates!
   jbuilder (~> 2.0)
   jquery-rails
   rails (= 4.2.6)

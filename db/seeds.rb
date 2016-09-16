@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+if Rails.env == "development" && Rate.count == 0
+  Exchange::Rates::EuropeanCentralBankRates.fetch do |rate|
+    Rate.create rate_at: Date.parse(rate[:date]), currency: rate[:currency], rate: rate[:rate]
+  end
+end
