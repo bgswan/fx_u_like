@@ -1,0 +1,38 @@
+<div>
+  <h1>FX-u-like</h1>
+  <%= form_for @conversion, html: {class: "form-horizontal"} do |f| %>
+    <div class="form-group">
+      <div class="col-md-1">
+        <%= f.label(:rate_at, "Date:", class: "control-label") %>
+      </div>
+      <div class="col-md-4">    	  
+        <%= f.text_field(:rate_at, class: "form-control") %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-1">
+        <%= f.label(:amount, "Amount:", class: "control-label") %>
+      </div>
+      <div class="col-md-4">
+        <%= f.text_field(:amount, class: "form-control") %>
+      </div>
+      <div class="col-md-1">
+        <%= f.label(:from_ccy, "From:", class: "control-label") %>
+      </div>
+      <div class="col-md-4">
+        <%= f.select(:from_ccy, options_for_select(Exchange::Rates::ExchangeRate.currencies), {}, class: "form-control") %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-offset-5 col-md-1">
+        <%= f.label(:to_ccy, "To:", class: "control-label") %>
+      </div>
+      <div class="col-md-4">
+        <%= f.select(:to_ccy, options_for_select(Exchange::Rates::ExchangeRate.currencies), {}, class: "form-control") %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.submit("Convert", class: "btn btn-primary") %>
+    </div>
+  <% end %>
+</div>
