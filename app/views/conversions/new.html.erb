@@ -5,16 +5,18 @@
       <div class="col-md-1">
         <%= f.label(:rate_at, "Date:", class: "control-label") %>
       </div>
-      <div class="col-md-4">    	  
+      <div class="col-md-4 <%= error_classes_for(@conversion, :rate_at) %>">    	  
         <%= f.text_field(:rate_at, class: "form-control") %>
+        <%= error_text_for(@conversion, :rate_at) %>  
       </div>
     </div>
     <div class="form-group">
       <div class="col-md-1">
         <%= f.label(:amount, "Amount:", class: "control-label") %>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-4 <%= error_classes_for(@conversion, :amount) %>">
         <%= f.text_field(:amount, class: "form-control") %>
+        <%= error_text_for(@conversion, :amount) %>  
       </div>
       <div class="col-md-1">
         <%= f.label(:from_ccy, "From:", class: "control-label") %>
@@ -32,7 +34,13 @@
       </div>
     </div>
     <div class="form-group">
+      <%= error_text_for(@conversion, :base) %>
+    </div>
+    <div class="form-group">
       <%= f.submit("Convert", class: "btn btn-primary") %>
     </div>
   <% end %>
+</div>
+<div>
+
 </div>
