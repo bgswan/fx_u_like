@@ -3,7 +3,6 @@ class ConversionsController < ApplicationController
   def index
     @conversion = Conversion.new(query_params)
     @conversion.convert
-    puts "Converted>>>>> #{@conversion.converted_amount}, #{@conversion.attributes}"
   end
 
   def new
@@ -21,15 +20,15 @@ class ConversionsController < ApplicationController
 
   private
 
-  def set_conversion
-    @conversion = Conversion.new(conversion_params)
-  end
-
   def conversion_params
-    params.require(:conversion).permit(:rate_at, :amount, :from_ccy, :to_ccy)
+    permitted(params.require(:conversion))
   end
 
   def query_params
-    ActionController::Parameters.new(params).permit(:rate_at, :amount, :from_ccy, :to_ccy)
+    permitted(ActionController::Parameters.new(params))
+  end
+
+  def permitted(parameters)
+    parameters.permit(:rate_at, :amount, :from_ccy, :to_ccy)
   end
 end

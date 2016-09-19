@@ -42,7 +42,7 @@ class ConversionsHelperTest < ActionView::TestCase
   end
 
   test "returns conversion result" do
-    assert_equal "100.0 GBP = 100.000 GBP on 2016-09-14", conversion_result(valid_conversion)
+    assert_equal "100.00 GBP = 100.000 GBP on 2016-09-14", conversion_result(valid_conversion)
   end
 
   test "returns conversion errors for conversion with no rates" do

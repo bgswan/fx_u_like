@@ -13,7 +13,7 @@ module ConversionsHelper
 
   def conversion_result(conversion)
     if conversion.errors[:base].empty?
-      "#{conversion.amount} #{conversion.from_ccy} = #{number_with_precision(conversion.converted_amount)} #{conversion.to_ccy} on #{conversion.rate_at}"
+      "#{number_with_precision(conversion.amount, precision: 2)} #{conversion.from_ccy} = #{number_with_precision(conversion.converted_amount)} #{conversion.to_ccy} on #{conversion.rate_at}"
     else
       conversion.errors[:base].join(", ")
     end
